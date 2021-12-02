@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load django_tables2 %}
+
+{% block content %}
+    <style>
+        td {
+            text-align: center;
+        }
+
+    </style>
+    <br>
+    <div id="div_leaders" class="container px-20" style="padding-top:60px">
+        <div class="row row-cols-auto gx-5">
+            <div class="col text-center">
+                <div class="p-3 border">
+                    <b>Zombies killed</b><br>{{ zcount }}
+                </div>
+            </div>
+            <div class="col text-center">
+                <div class="p-3 border">
+                    <b>Distance traveled</b><br>{{ traveled }}
+                </div>
+            </div>
+            <div class="col text-center">
+                <div class="p-3 border">
+                    <b>Animal Killer</b><br><a href="https://steamcommunity.com/profiles/{{ animalKiller.steamid }}">{{ animalKiller.name }} ({{ animalKiller.count }})</a>
+                </div>
+            </div>
+            <div class="col text-center">
+                <div class="p-3 border">
+                    <b>Zombie Killer</b><br><a href="https://steamcommunity.com/profiles/{{ zombieKiller.steamid }}">{{ zombieKiller.name }} ({{ zombieKiller.count }})</a>
+                </div>
+            </div>
+            <div class="col text-center">
+                <div class="p-3 border">
+                    <b>Sniper</b><br><a href="https://steamcommunity.com/profiles/{{ sniper.steamid }}">{{ sniper.name }} ({{ sniper.dist }}m)</a>
+                </div>
+            </div>
+        </div>
+    </div>
+<br><br><br>
+    <div name="div_players" class="div_players text-center" id="div_players">
+        <h1 class="display-3">Players (Total stats)</h1>
+        {% render_table players %}
+    </div>
+    <br>
+    <div name="div_deaths" class="div_deaths text-center" id="div_deaths">
+        <h1 class="display-3">Deaths</h1>
+        {% render_table deaths %}
+    </div>
+{% endblock %}

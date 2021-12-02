@@ -1,0 +1,17 @@
+{% block navbar %}
+    {% with url_name=request.resolver_match.url_name %}
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link {% if url_name == 'home' %}active{% endif %}" href="">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if url_name == 'leaderboard' %}active{% endif %}" href="/leaderboard">Leaderboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if url_name == 'server_status' %}active{% endif %}" href="/server_status">Server status</a>
+                </li>
+            </ul>
+        </nav>
+    {% endwith %}
+{% endblock %}
