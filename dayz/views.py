@@ -56,3 +56,15 @@ def server_status(request):
     return render(request, 'dayz/server_status.html', {'data': jdata, "memory": memory})
 
 
+def home(request):
+    return render(request, 'dayz/home.html')
+
+
+def tips_medical(request):
+    return render(request, 'dayz/tips_medical.html')
+
+
+def tips_craft(request):
+    return render(request, 'dayz/tips_craft.html')
+
+
