@@ -44,7 +44,7 @@ mysql -u ${mysql_user} -p${mysql_pass} -e "${SQL_CREATE_TABLE2}" dayz_leaderboar
 logger INFO "Creating table dayz_death_player"
 mysql -u ${mysql_user} -p${mysql_pass} -e "${SQL_CREATE_TABLE3}" dayz_leaderboard || logger ERROR "MySQL unable to create table dayz_death_player"
 logger INFO "Granting MySQL privileges"
-mysql -u ${mysql_user} -p${mysql_pass} -e "GRANT ALL ON dayz_leaderboard.* TO dayz_leaderboard@'localhost' IDENTIFIED BY 'Ostrava123';" dayz_leaderboard || logger ERROR "MySQL unable to grant privileges" 
+mysql -u ${mysql_user} -p${mysql_pass} -e "GRANT ALL ON dayz_leaderboard.* TO dayz_leaderboard@'%' IDENTIFIED BY 'Ostrava123';" dayz_leaderboard || logger ERROR "MySQL unable to grant privileges" 
 logger INFO "MySQL preparation complete"
 
 logger INFO "#### PYTHON3 CONFIGURATION ####"
